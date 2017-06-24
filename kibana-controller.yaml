@@ -17,13 +17,14 @@ spec:
         component: elk
         role: kibana
     spec:
+      hostNetwork: true
       serviceAccount: elk
       containers:
       - name: kibana
-        image: quay.io/pires/docker-kibana:4.1.1
+        image: teq545/kibana:latest
         env:
         - name: KIBANA_ES_URL
-          value: "http://elasticsearch.default.svc.cluster.local:9200"
+          value:  "http://13.73.20.14:9200"
         - name: KUBERNETES_TRUST_CERT
           value: "true"
         ports:
